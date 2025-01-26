@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store', # Django App
+    'cart',
+    'account',
+    'mathfilters',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -63,11 +67,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'stores.views.categories'
+                'store.views.categories',
+                'cart.context_processors.cart'
             ],
         },
     },
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 WSGI_APPLICATION = 'ecomstore.wsgi.application'
 
