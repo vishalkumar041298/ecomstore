@@ -10,29 +10,26 @@
     <body>
         <br>
         <div class="container bg-white shadow-md p-5 form-layout">
-            <h2> Create your account! </h2>
+            <h2> Login to your account! </h2>
             <hr>
-            <h5>  Register today and get 10% discount</h5>
             <br>
-
             <form  method="post" autocomplete="off">
                 {% csrf_token %}
                 {{form.username|as_crispy_field}}
                 <br>
-                {{form.email|as_crispy_field}}
+                {{form.password|as_crispy_field}}
                 <br>
-                {{form.password1|as_crispy_field}}
-                <br>
-                {{form.password2|as_crispy_field}}
-                <br>
-                <button type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2">&nbsp;Register</button>
+                <button type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2"><i class="fa fa-key" aria-hidden="true"></i>&nbsp; Login</button>
+                {{form.non_field_errors}}
                 <div class="text-center" >
-                    <a href="{% url 'login' %}"> Already have an account? </a>
+                    <br>
+                    <a href="{% url 'register' %}"> Don't have an account? </a>
+                    <br>
+                    <a href="{% url 'reset_password' %}"> Forgotten your password? </a>
                 </div>
             </form>
         </div>
         <br> <br>
-        
     </body>
 
 {% endblock %}
