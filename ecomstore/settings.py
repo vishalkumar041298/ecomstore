@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'store', # Django App
     'cart',
     'account',
+    'payment',
     'mathfilters',
     'crispy_forms'
 ]
@@ -143,4 +144,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'vishallindan170@gmail.com'
-EMAIL_HOST_PASSWORD = 'slwr zepx votq pvqx'
+EMAIL_HOST_PASSWORD = 'slwr bzepx avotq pvqx'
