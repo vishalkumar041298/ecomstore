@@ -62,7 +62,7 @@ def complete_order(request):
         #     for item in cart:
         #         OrderItem.objects.create(order_id=order.pk, product=item['product'], quantity=item['qty'], price=item['price'])
         user = request.user if request.user.is_authenticated else None
-        order = Order(full_name=name, email=email, shipping_address=shipping_address, amount_paid=total_cost, user=request.user)
+        order = Order(full_name=name, email=email, shipping_address=shipping_address, amount_paid=total_cost, user_id=request.user.pk)
         order.save()
         for item in cart:
             OrderItem.objects.create(order_id=order.pk, product=item['product'], quantity=item['qty'], price=item['price'], user=user)

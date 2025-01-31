@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from .forms import CreateUserForm, LoginForm, UpdateUserForm
 from payment.forms import ShippingForm
-from payment.models import ShippingAddress
+from payment.models import OrderItem, ShippingAddress
 from django.contrib.sites.shortcuts import get_current_site
 from . token import user_tokenizer_generate
 
@@ -136,3 +136,14 @@ def manage_shipping(request):
             return redirect('dashboard')
     context = {'form': form}
     return render(request, 'account/manage-shipping.html', context)
+
+@login_required(login_url='login')
+def track_orders(request):
+    
+    try:
+        orders = OrderItem.objects.filter(user=request.user)
+        context = {'orders': orders}
+        return render(request, 'account/track-orders.html', context=context)
+    
+    except:
+        return render(request, 'account/track-orders.html')
